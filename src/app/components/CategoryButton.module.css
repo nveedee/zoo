@@ -1,0 +1,19 @@
+/* src/components/CategoryButton.module.css */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    aspect-ratio: 1 / 1; /* Ensures the button is square */
+}
+
+.button:hover {
+    background-color: #45a049;
+}
