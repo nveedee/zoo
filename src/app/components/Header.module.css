@@ -1,9 +1,9 @@
-/* src/components/Header.module.css */
+/* src/app/components/Header.module.css */
 .header {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #607d8b; /* Modern gray-blue color */
     color: white;
-    padding: 10px 20px;
+    padding: 20px 20px; /* Make the header thicker */
     position: fixed;
     top: 0;
     left: 0;
