@@ -21,8 +21,8 @@ export default function PonchoOrderForm() {
     if (submitted) {
         return (
             <div className={styles.confirmation}>
-                <h2>Bestellung erfolgreich!</h2>
-                <p>Sie können Ihre Regenponchos am Info-Point abholen.</p>
+                <p>IHR PONCHO IST ABHOLBEREIT!</p>
+                <p>(am Infodesk)</p>
             </div>
         );
     }
@@ -44,7 +44,7 @@ export default function PonchoOrderForm() {
             </label>
             <p className={styles.price}>pro Poncho 3 CHF</p>
             <fieldset className={styles.fieldset}>
-                <legend>Größe:</legend>
+                <legend>Welche Grösse möchten sie haben:</legend>
                 <label className={styles.radioLabel}>
                     <input
                         type="radio"
@@ -78,8 +78,19 @@ export default function PonchoOrderForm() {
                     />
                     L
                 </label>
+                <label className={styles.radioLabel}>
+                    <input
+                        type="radio"
+                        name="size"
+                        value="XL"
+                        checked={size === 'XL'}
+                        onChange={(e) => setSize(e.target.value)}
+                        required
+                    />
+                    XL
+                </label>
             </fieldset>
-            <button className={styles.button} type="submit">Bestellen</button>
+            <button className={styles.button} type="submit">BUY NOW</button>
         </form>
     );
 }

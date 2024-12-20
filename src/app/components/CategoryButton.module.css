@@ -1,19 +1,24 @@
-/* src/components/CategoryButton.module.css */
+/* src/app/components/CategoryButton.module.css */
 .button {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    margin: 10px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
     text-decoration: none;
-    font-size: 20px;
-    border-radius: 5px;
-    aspect-ratio: 1 / 1; /* Ensures the button is square */
+    color: inherit;
+    margin-top: -10px; /* Move the button slightly upwards */
 }
 
-.button:hover {
-    background-color: #45a049;
+.image {
+    width: 200px; /* Increase the size of the image */
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.text {
+    text-align: left;
+    font-size: 32px; /* Increase the font size */
+}
+
+.text span {
+    display: block; /* Ensure each word starts on a new line */
 }
