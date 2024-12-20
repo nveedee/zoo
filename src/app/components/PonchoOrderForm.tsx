@@ -21,6 +21,8 @@ export default function PonchoOrderForm() {
     if (submitted) {
         return (
             <div className={styles.confirmation}>
+                <img src="https://img.freepik.com/vektoren-kostenlos/gruenes-doppelkreis-haekchen_78370-1749.jpg"
+                     alt="bestaetigungs symbol grün" width={300} style={{marginBottom: 30}}/>
                 <p>IHR PONCHO IST ABHOLBEREIT!</p>
                 <p>(am Infodesk)</p>
             </div>
@@ -42,9 +44,9 @@ export default function PonchoOrderForm() {
                     <button type="button" onClick={() => handleQuantityChange(1)}>+</button>
                 </div>
             </label>
-            <p className={styles.price}>pro Poncho 3 CHF</p>
+            <p className={styles.price} style={{marginLeft: 280, marginBottom: 20}}>pro Poncho 3 CHF </p>
             <fieldset className={styles.fieldset}>
-                <legend>Welche Grösse möchten sie haben:</legend>
+                <legend>Welche Grösse möchten sie haben?</legend>
                 <label className={styles.radioLabel}>
                     <input
                         type="radio"
