@@ -5,20 +5,24 @@
     align-items: flex-start;
     text-decoration: none;
     color: inherit;
-    margin-top: -10px; /* Move the button slightly upwards */
+    margin-top: -10px;
 }
 
 .image {
-    width: 200px; /* Increase the size of the image */
-    height: 200px;
+    width: 175px;
+    height: 175px;
     margin-bottom: 20px;
 }
 
 .text {
     text-align: left;
-    font-size: 32px; /* Increase the font size */
+    font-size: 28px;
 }
 
 .text span {
-    display: block; /* Ensure each word starts on a new line */
+    display: block;
+}
+
+.poncho:hover {
+    opacity: 60%;
 }

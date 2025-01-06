@@ -8,10 +8,10 @@ interface CategoryButtonProps {
     imageSrc: string;
 }
 
-export default function CategoryButton({ title, link, imageSrc }: CategoryButtonProps) {
+export default function CategoryButton({title, link, imageSrc}: CategoryButtonProps) {
     return (
-        <Link href={link} className={styles.button}>
-            <img src={imageSrc} alt={title} className={styles.image} />
+        <Link href={link} className={`${styles.button}  ${styles.poncho}`}>
+            <img src={imageSrc} alt={title} className={styles.image}/>
             <div className={styles.text}>
                 {title.split(' ').map((word, index) => (
                     <span key={index}>{word}</span>
