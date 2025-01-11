@@ -31,7 +31,7 @@ export default function PonchoOrderForm() {
 
     return (
         <div>
-            <img src={'/zooImg.png'} alt="Zoo Logo" className={styles.image}/>
+            <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcAEBgzVkoC5AaUKPpc-S1gtV13vPiFwGUlJRaD_eOFuX5rS1RoezzSffp1ixURjPgoVw&usqp=CAU'} alt="Zoo Logo" className={styles.zooLogo}/>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <label className={styles.quantityLabel}>
                     Wie viele Ponchos möchten Sie kaufen?

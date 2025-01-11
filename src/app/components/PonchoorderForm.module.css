@@ -87,9 +87,9 @@
     height: 100vh; /* Full viewport height */
 }
 
-.image {
-    width: 4rem;
-    max-width: 400px;
-    margin-top: 20px;
-    padding-bottom: 2rem;
+.zooLogo {
+    display: block; /* Make it a block element */
+    margin: 0 auto; /* Center the image horizontally */
+    width: 200px; /* Set a smaller width */
+    height: auto; /* Maintain aspect ratio */
 }

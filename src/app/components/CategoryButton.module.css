@@ -23,6 +23,21 @@
     display: block;
 }
 
-.poncho:hover {
-    opacity: 60%;
+.poncho {
+    position: relative;
+}
+
+.poncho:hover::after {
+    content: "Klicken für Details";
+    position: absolute;
+    top: 35%;
+    left: 0;
+    transform: translate(0, -50%);
+    color: black;
+    font-size: 25px;
+}
+
+.poncho:hover .image,
+.poncho:hover .text {
+    opacity: 0.6;
 }
