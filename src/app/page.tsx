@@ -1,6 +1,7 @@
 import CategoryButton from './components/CategoryButton';
 import styles from './page.module.css';
 
+// main
 export default function Home() {
     return (
         <div className={styles.page}>
