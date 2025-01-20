@@ -1,101 +1,94 @@
-// src/app/components/PonchoOrderForm.tsx
 "use client";
 
-import {useState} from 'react';
+import { useState } from 'react';
+import Link from 'next/link';
 import styles from './PonchoOrderForm.module.css';
 
 export default function PonchoOrderForm() {
     const [size, setSize] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [submitted, setSubmitted] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitted(true);
     };
 
-    const handleQuantityChange = (amount: number) => {
-        setQuantity(prevQuantity => Math.max(1, prevQuantity + amount));
-    };
-
-    if (submitted) {
-        return (
-            <div className={styles.confirmation}>
-                <img src="https://img.freepik.com/vektoren-kostenlos/gruenes-doppelkreis-haekchen_78370-1749.jpg"
-                     alt="bestaetigungs symbol grün" width={300} style={{marginBottom: 30}}/>
-                <p>IHR PONCHO IST ABHOLBEREIT!</p>
-                <p>(am Infodesk)</p>
-            </div>
-        );
-    }
-
     return (
-        <div>
-            <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcAEBgzVkoC5AaUKPpc-S1gtV13vPiFwGUlJRaD_eOFuX5rS1RoezzSffp1ixURjPgoVw&usqp=CAU'} alt="Zoo Logo" className={styles.zooLogo}/>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <label className={styles.quantityLabel}>
-                    Wie viele Ponchos möchten Sie kaufen?
-                    <div className={styles.quantityControl}>
-                        <button type="button" onClick={() => handleQuantityChange(-1)}>-</button>
-                        <input
-                            className={styles.input}
-                            type="number"
-                            value={quantity}
-                            readOnly
-                        />
-                        <button type="button" onClick={() => handleQuantityChange(1)}>+</button>
+        <div className={styles.container}>
+            <div className={styles.backgroundImage}></div>
+            <div
+                className={styles.burgerMenu}
+                onClick={() => setMenuOpen(!menuOpen)}
+            >
+                &#9776;
+            </div>
+            {menuOpen && (
+                <div className={styles.menuOverlay}>
+                    <div className={styles.menuContent}>
+                        <button
+                            className={styles.closeButton}
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            &times;
+                        </button>
+                        <nav>
+                            <Link href="/" className={styles.menuItem}>
+                                Home
+                            </Link>
+                            <Link href="/ponchos" className={styles.menuItem}>
+                                Ponchos
+                            </Link>
+                            <Link href="/tickets" className={styles.menuItem}>
+                                Tickets
+                            </Link>
+                        </nav>
                     </div>
-                </label>
-                <p className={styles.price} style={{marginLeft: 280, marginBottom: 20}}>pro Poncho 3 CHF </p>
-                <fieldset className={styles.fieldset}>
-                    <legend>Welche Grösse möchten sie haben?</legend>
-                    <label className={styles.radioLabel}>
-                        <input
-                            type="radio"
-                            name="size"
-                            value="S"
-                            checked={size === 'S'}
-                            onChange={(e) => setSize(e.target.value)}
-                            required
-                        />
-                        S
-                    </label>
-                    <label className={styles.radioLabel}>
-                        <input
-                            type="radio"
-                            name="size"
-                            value="M"
-                            checked={size === 'M'}
-                            onChange={(e) => setSize(e.target.value)}
-                            required
-                        />
-                        M
-                    </label>
-                    <label className={styles.radioLabel}>
-                        <input
-                            type="radio"
-                            name="size"
-                            value="L"
-                            checked={size === 'L'}
-                            onChange={(e) => setSize(e.target.value)}
-                            required
-                        />
-                        L
-                    </label>
-                    <label className={styles.radioLabel}>
-                        <input
-                            type="radio"
-                            name="size"
-                            value="XL"
-                            checked={size === 'XL'}
-                            onChange={(e) => setSize(e.target.value)}
-                            required
-                        />
-                        XL
-                    </label>
-                </fieldset>
-                <button className={styles.button} type="submit">BUY NOW</button>
-            </form>
+                </div>
+            )}
+            <div className={styles.formContainer}>
+                {!submitted ? (
+                    <form onSubmit={handleSubmit}>
+                        <h1 style={{ textAlign: 'center', color: '#00796b' }}>Bestellung von Regenponchos</h1>
+                        <label className={styles.formLabel}>
+                            Größe:
+                            <select
+                                value={size}
+                                onChange={(e) => setSize(e.target.value)}
+                                className={styles.formSelect}
+                                required
+                            >
+                                <option value="">Wählen Sie eine Größe</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </label>
+                        <label className={styles.formLabel}>
+                            Anzahl:
+                            <input
+                                type="number"
+                                value={quantity}
+                                onChange={(e) => setQuantity(Number(e.target.value))}
+                                className={styles.formInput}
+                                min="1"
+                                required
+                            />
+                        </label>
+                        <button type="submit" className={styles.formButton}>
+                            Bestellen
+                        </button>
+                    </form>
+                ) : (
+                    <div className={styles.confirmation}>
+                        <h2>Bestellung Bestätigt</h2>
+                        <p>Größe: {size}</p>
+                        <p>Anzahl: {quantity}</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

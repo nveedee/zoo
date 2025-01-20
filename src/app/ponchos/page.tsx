@@ -2,11 +2,10 @@
 "use client";
 
 import PonchoOrderForm from '../components/PonchoOrderForm';
-import styles from './PonchosPage.module.css';
 
 export default function PonchosPage() {
     return (
-        <div className={styles.page}>
+        <div>
             <PonchoOrderForm />
         </div>
     );
