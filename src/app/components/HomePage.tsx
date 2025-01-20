@@ -78,6 +78,12 @@ export default function HomePage() {
                             <Link href="/tickets" className={styles.menuItem}>
                                 Tickets
                             </Link>
+                            <Link href="/zoo-map" className={styles.menuItem}>
+                                Zoo Map
+                            </Link>
+                            <Link href="/info" className={styles.menuItem}>
+                            Info
+                            </Link>
                         </nav>
                     </div>
                 </div>

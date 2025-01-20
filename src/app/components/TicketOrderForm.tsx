@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './PonchoOrderForm.module.css';
+import styles from './TicketOrderForm.module.css';
 
-export default function PonchoOrderForm() {
-    const [size, setSize] = useState('');
+export default function TicketOrderForm() {
+    const [ticketType, setTicketType] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [submitted, setSubmitted] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -56,20 +56,19 @@ export default function PonchoOrderForm() {
             <div className={styles.formContainer}>
                 {!submitted ? (
                     <form onSubmit={handleSubmit}>
-                        <h1 style={{ textAlign: 'center', color: '#00796b' }}>Bestellung von Regenponchos</h1>
+                        <h1 style={{ textAlign: 'center', color: '#00796b' }}>Ticket Bestellung</h1>
                         <label className={styles.formLabel}>
-                            Größe:
+                            Ticket Typ:
                             <select
-                                value={size}
-                                onChange={(e) => setSize(e.target.value)}
+                                value={ticketType}
+                                onChange={(e) => setTicketType(e.target.value)}
                                 className={styles.formSelect}
                                 required
                             >
-                                <option value="">Wählen Sie eine Größe</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
+                                <option value="">Wählen Sie einen Ticket Typ</option>
+                                <option value="Erwachsene">Erwachsene</option>
+                                <option value="Kinder">Kinder</option>
+                                <option value="Senioren">Senioren</option>
                             </select>
                         </label>
                         <label className={styles.formLabel}>
@@ -90,7 +89,7 @@ export default function PonchoOrderForm() {
                 ) : (
                     <div className={styles.confirmation}>
                         <h2>Bestellung Bestätigt</h2>
-                        <p>Größe: {size}</p>
+                        <p>Ticket Typ: {ticketType}</p>
                         <p>Anzahl: {quantity}</p>
                     </div>
                 )}
