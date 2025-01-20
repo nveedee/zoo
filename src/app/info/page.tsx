@@ -1,4 +1,3 @@
-// src/app/info/page.tsx
 "use client";
 
 import InfoPage from "../components/InfoPage";
